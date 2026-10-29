@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102521">
+  <meta name="description" content="Un site interactif pour pratiquer Linux, Git, le shell et les conversions binaire-décimal.">
+  <title>Atelier Shell — exercices Linux</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#accueil" aria-label="Atelier Shell, accueil"><span class="brand-mark">$_</span><span>atelier<span class="brand-light">shell</span></span></a>
+    <nav aria-label="Navigation principale"><a href="#parcours">Parcours</a><a href="#convertisseur">Binaire</a></nav>
+    <div class="top-progress" aria-label="Progression"><span id="progress-label">0 / 0</span><span class="progress-track"><i id="progress-fill"></i></span></div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+    <div class="hero-copy"><p class="eyebrow">APPRENDRE EN PRATIQUANT</p><h1>Le terminal,<br><em>à votre rythme.</em></h1><p class="hero-lede">Un atelier interactif pour comprendre Linux, Git, le shell et convertir les nombres binaires.</p><a class="button button-light" href="#parcours">Commencer les exercices <span aria-hidden="true">↓</span></a><p class="hero-note"><span class="live-dot"></span> Aucun compte, aucune installation</p></div>
+      <div class="terminal-card" aria-label="Exemple de terminal"><div class="terminal-bar"><span></span><span></span><span></span><small>terminal — bash</small></div><div class="terminal-body"><p><b>lea@atelier</b>:<i>~</i>$ pwd</p><p class="terminal-output">/home/lea</p><p><b>lea@atelier</b>:<i>~</i>$ ls</p><p class="terminal-output terminal-blue">Documents&nbsp;&nbsp; projets&nbsp;&nbsp; notes.txt</p><p><b>lea@atelier</b>:<i>~</i>$ <span class="cursor"></span></p></div><div class="terminal-caption">Une commande à la fois. Le terminal n’a rien de magique.</div></div>
+    </section>
+
+    <section class="stats-row" aria-label="Contenu du parcours"><div><strong id="chapter-count">5</strong><span>chapitres</span></div><div><strong id="lesson-count">—</strong><span>notions à explorer</span></div><div><strong>∞</strong><span>essais possibles</span></div><p>Votre progression reste sur cet appareil.</p></section>
+
+    <section class="learning-layout" id="parcours">
+      <aside class="sidebar"><p class="eyebrow">VOTRE PARCOURS</p><div id="chapter-nav" class="chapter-nav"></div><button id="quiz-nav" class="quiz-nav"><span class="quiz-nav-icon">✓</span><span>Quiz complet</span></button><div class="sidebar-tip"><span>✳</span><p><b>À retenir</b><br>Choisissez une notion ou lancez le quiz complet.</p></div></aside>
+      <div class="lesson-area" id="lesson-view"><div class="section-heading"><div><p class="eyebrow" id="chapter-kicker">CHAPITRE 01</p><h2 id="chapter-title">Shell basique</h2></div><span id="chapter-progress" class="chapter-progress"></span></div><p id="chapter-intro" class="chapter-intro"></p>
+        <div id="lesson-grid" class="lesson-grid"></div>
+      </div>
+      <div id="quiz-view" class="quiz-view" hidden>
+        <div id="quiz-start-screen" class="quiz-start-screen"><p class="eyebrow">ENTRAÎNEMENT GLOBAL</p><h2>Quiz complet</h2><p>Répondez aux questions de tous les chapitres : Linux, permissions, filtres, shell et Git. Le chronomètre démarre quand vous lancez le quiz.</p><div class="quiz-start-meta"><span id="quiz-total-count">— questions</span><span>Questions à choix et réponses courtes</span></div><button class="button button-dark" id="start-quiz">Commencer le quiz <span aria-hidden="true">→</span></button></div>
+        <div id="quiz-run-screen" hidden><div class="quiz-run-top"><div><p class="eyebrow">QUIZ COMPLET</p><h2>À vous de jouer</h2></div><div class="quiz-clock"><span>TEMPS ÉCOULÉ</span><strong id="quiz-timer">00:00</strong></div></div><div class="quiz-meter"><span id="quiz-progress-text">Question 1</span><div class="quiz-meter-track"><i id="quiz-meter-fill"></i></div><span id="quiz-chapter-name"></span></div><section class="exercise-card quiz-question-card" aria-live="polite"><div class="exercise-top"><span class="exercise-label"><span class="spark">✳</span> QUESTION</span><span id="quiz-question-number" class="exercise-index"></span></div><h3 id="quiz-question"></h3><p id="quiz-context" class="question-context"></p><div id="quiz-answer-area"></div><div class="exercise-actions"><button class="button button-dark" id="quiz-check">Vérifier ma réponse <span aria-hidden="true">→</span></button><button class="button button-dark" id="quiz-next" hidden>Question suivante <span aria-hidden="true">→</span></button></div><p id="quiz-feedback" class="feedback" role="status"></p></section></div>
+        <div id="quiz-result-screen" class="quiz-result-screen" hidden><p class="eyebrow">QUIZ TERMINÉ</p><h2>Bien joué, vous êtes allé·e au bout.</h2><div class="quiz-final-score"><strong id="quiz-score">0 / 0</strong><span id="quiz-duration">en 00:00</span></div><div class="quiz-result-actions"><button class="button button-dark" id="restart-quiz">Recommencer le quiz</button><button class="text-button" id="back-to-lessons">Retour aux chapitres</button></div></div>
+      </div>
+    </section>
+
+    <section class="converter-section" id="convertisseur"><div class="converter-copy"><p class="eyebrow">OUTIL DE PRATIQUE</p><h2>Décimal ↔ binaire</h2><p>Choisissez un sens et entrez un nombre entier positif. Le résultat apparaît immédiatement, avec les étapes de conversion.</p><div class="conversion-note"><span>01</span><p><b>Décimal → binaire</b><br>Divisez par 2 et lisez les restes de bas en haut.</p></div><div class="conversion-note"><span>02</span><p><b>Binaire → décimal</b><br>Additionnez les puissances de 2 correspondant aux bits à 1.</p></div></div><div class="converter-card"><div class="toggle" role="group" aria-label="Sens de conversion"><button class="toggle-button active" data-mode="toBinary">Décimal → binaire</button><button class="toggle-button" data-mode="toDecimal">Binaire → décimal</button></div><label for="number-input" id="number-label">Nombre décimal</label><div class="input-wrap"><input type="text" id="number-input" inputmode="numeric" placeholder="ex. 42" autocomplete="off"><span id="input-suffix">base 10</span></div><p id="converter-error" class="converter-error" role="status"></p><div class="result-box"><span>RÉSULTAT</span><strong id="conversion-result">—</strong></div><div id="conversion-steps" class="conversion-steps">Saisissez un nombre pour voir les étapes.</div></div></section>
+    <section class="closing"><span class="closing-mark">$_</span><p>La meilleure façon d’apprendre le shell ?<br><b>Pratiquer, se tromper, recommencer.</b></p><a href="#parcours">Reprendre le parcours ↑</a></section>
+  </main>
+  <footer><span>ATELIER SHELL</span><span>Fait pour apprendre, librement.</span><a href="README.md">Mode d’emploi</a></footer>
+</body>
+</html>
